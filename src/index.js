@@ -43,6 +43,7 @@ export function provisionReactComponent() {
         stage: 1,
         sourceMaps: 'inline',
         ignore: 'node_modules',
+        optional: [ 'runtime' ],
       },
     }),
     provisionNpmSemanticRelease(),

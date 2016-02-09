@@ -48,6 +48,7 @@ export function provisionPackageJson() {
           },
           devDependencies: {
             '@economist/provision-react-component': moduleJson.version,
+            'babel-runtime': '^5.8.29',
             'live-server': '^0.9.0',
           },
         }, packageJson));

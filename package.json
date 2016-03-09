@@ -83,7 +83,7 @@
     "provision-git": "^1.1.0",
     "provision-gitignore": "^1.0.2",
     "provision-npm-babel": "^1.1.2",
-    "provision-npm-semantic-release": "^2.0.0",
+    "provision-npm-semantic-release": "^2.0.1",
     "provision-stylelint": "^1.0.1",
     "sort-package-json": "^1.3.0"
   },

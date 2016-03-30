@@ -70,7 +70,7 @@
     "lodash.defaultsdeep": "^4.3.2",
     "lodash.get": "^4.1.2",
     "lodash.kebabcase": "^4.0.0",
-    "lodash.uniq": "^4.2.0",
+    "lodash.uniq": "^4.2.1",
     "lodash.without": "^4.1.1",
     "packagesmith": "^1.1.2",
     "packagesmith.formats.json": "^1.0.1",

@@ -98,7 +98,7 @@ describe('${ packageToClass(answers) }', () => {
     });
 
     xit('renders <FILL THIS IN>', () => {
-      ${ packageToCamel(answers) }.should.have.exactly(1).descendents('.the-descendent-class');
+      ${ packageToCamel(answers) }.should.have.exactly(1).descendants('.the-descendent-class');
       ${ packageToCamel(answers) }.find('.the-descendent-class').should.have.tagName('TAG');
     });
 

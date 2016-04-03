@@ -68,7 +68,7 @@
     "lodash.capitalize": "^4.1.1",
     "lodash.compose": "^2.4.1",
     "lodash.defaultsdeep": "^4.3.3",
-    "lodash.get": "^4.1.2",
+    "lodash.get": "^4.2.0",
     "lodash.kebabcase": "^4.0.0",
     "lodash.uniq": "^4.2.0",
     "lodash.without": "^4.1.2",

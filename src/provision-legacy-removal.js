@@ -1,12 +1,25 @@
 #!/usr/bin/env node
 import getObjectPath from 'lodash.get';
 import jsonFile from 'packagesmith.formats.json';
+import multilineFile from 'packagesmith.formats.multiline';
 import { runProvisionerSet } from 'packagesmith';
 import sortPackageJson from 'sort-package-json';
 import without from 'lodash.without';
 
 export function provisionLegacyRemoval() {
   return {
+
+    '.gitignore': {
+      contents: multilineFile((contents) => without(contents || [],
+        'node_modules/',
+        '*.log',
+        '*.js',
+        'bundle.css',
+        '*.html',
+        '!karma.conf.js',
+        'testbundle.js',
+      )),
+    },
 
     'package.json': {
       after: 'npm prune',

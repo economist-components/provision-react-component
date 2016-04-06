@@ -23,6 +23,7 @@ git['.git/config'].questions[gitRepositoryQuestionIndex].default = (answers, dir
 );
 export function provisionReactComponent() {
   return combineProvisionerSets(
+    provisionLegacyRemoval(),
     provisionEditorConfig(),
     git,
     provisionGitIgnore({
@@ -56,7 +57,6 @@ export function provisionReactComponent() {
       scriptName: 'lint:js',
     }),
     provisionGocdFe(),
-    provisionLegacyRemoval(),
     provisionMainFiles(),
     provisionPackageJson(),
     provisionReactTestSuite(),

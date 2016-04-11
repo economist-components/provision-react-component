@@ -74,6 +74,7 @@
     "packagesmith": "^1.1.2",
     "packagesmith.formats.json": "^1.0.1",
     "packagesmith.formats.multiline": "^1.0.1",
+    "packagesmith.formats.yaml": "^1.0.0",
     "packagesmith.questions.description": "^1.0.1",
     "packagesmith.questions.name": "^1.0.1",
     "parse-packagejson-name": "^1.0.0",

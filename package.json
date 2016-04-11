@@ -28,7 +28,6 @@
     "access:public": "npm access public $npm_package_name",
     "access:sudo": "npm access grant read-write economist:read-write-all $npm_package_name",
     "lint": "eslint $npm_package_directories_src",
-    "pages": "echo stub for build.sh",
     "prepublish": "babel $npm_package_directories_src -d $npm_package_directories_lib",
     "postpublish": "npm run access",
     "semantic-release": "semantic-release pre || exit 0; npm publish && semantic-release post",

@@ -40,6 +40,7 @@ export function provisionTestFiles() {
           'karma-browserify': packageVersions['karma-browserify'],
           'karma-coverage': packageVersions['karma-coverage'],
           'browserify-istanbul': packageVersions['browserify-istanbul'],
+          'istanbul': packageVersions.istanbul,
           'chai-enzyme': packageVersions['chai-enzyme'],
           'enzyme': packageVersions.enzyme,
           'isparta': packageVersions.isparta,

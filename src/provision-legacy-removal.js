@@ -9,6 +9,10 @@ import without from 'lodash.without';
 export function provisionLegacyRemoval() {
   return {
 
+    'build.sh': {
+      command: 'rm -f build.sh',
+    },
+
     '.gitignore': {
       contents: multilineFile((contents) => without(contents || [],
         'node_modules/',
@@ -40,6 +44,7 @@ export function provisionLegacyRemoval() {
           Reflect.deleteProperty(packageJson.scripts, 'doc:css:watch');
           Reflect.deleteProperty(packageJson.scripts, 'doc:html:watch');
           Reflect.deleteProperty(packageJson.scripts, 'doc:html:watch');
+          Reflect.deleteProperty(packageJson.scripts, 'ci');
         }
         if (packageJson.devDependencies) {
           Reflect.deleteProperty(packageJson.devDependencies, '@economist/component-devpack');

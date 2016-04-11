@@ -7,7 +7,6 @@ import provisionEditorConfig from 'provision-editorconfig';
 import provisionEslint from 'provision-eslint';
 import provisionGit from 'provision-git';
 import provisionGitIgnore from 'provision-gitignore';
-import provisionGocdFe from './provision-gocd-fe';
 import provisionLegacyRemoval from './provision-legacy-removal';
 import provisionMainFiles from './provision-mainfiles';
 import provisionNpmBabel from 'provision-npm-babel';
@@ -16,6 +15,7 @@ import provisionPackageJson from './provision-packagejson';
 import provisionReactTestSuite from './provision-react-testsuite';
 import provisionReadme from './provision-readme';
 import provisionStylelint from 'provision-stylelint';
+import provisionTravis from './provision-travis';
 const git = provisionGit();
 const gitRepositoryQuestionIndex = 0;
 git['.git/config'].questions[gitRepositoryQuestionIndex].default = (answers, dirname) => (
@@ -56,7 +56,7 @@ export function provisionReactComponent() {
       },
       scriptName: 'lint:js',
     }),
-    provisionGocdFe(),
+    provisionTravis(),
     provisionMainFiles(),
     provisionPackageJson(),
     provisionReactTestSuite(),

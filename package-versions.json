@@ -19,6 +19,7 @@
   "karma-browserify": "^5.0.2",
   "karma-coverage": "^0.5.5",
   "browserify-istanbul": "^1.0.0",
+  "istanbul": "^0.4.3",
   "chai-enzyme": "^0.4.1",
   "enzyme": "^2.1.0",
   "isparta": "^3.5.3",

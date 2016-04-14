@@ -1,3 +1,21 @@
+[![By:Economist](
+  https://img.shields.io/badge/By-Economist-e3120b.svg?style=flat-square
+)](
+  http://www.economist.com/
+)[![Build Status](
+  https://img.shields.io/npm/v/@economist%2Fprovision-react-component.svg?style=flat-square
+)](
+  https://www.npmjs.com/package/@economist%2Fprovision-react-component
+)[![Build Status](
+  https://img.shields.io/travis/economist-components/provision-react-component/master.svg?style=flat-square
+)](
+  https://travis-ci.org/economist-components/provision-react-component/branches
+)[![Coverage Status](
+  https://img.shields.io/coveralls/economist-components/provision-react-component/master.svg?style=flat-square
+)](
+  https://coveralls.io/github/economist-components/provision-react-component?branch=master
+)
+
 # Provision React Component
 > Rapidly provision React components
 

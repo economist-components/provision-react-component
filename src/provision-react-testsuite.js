@@ -47,9 +47,12 @@ export function provisionTestFiles() {
           'phantomjs-prebuilt': packageVersions['phantomjs-prebuilt'],
           'karma-sauce-launcher': packageVersions['karma-sauce-launcher'],
           'babel-polyfill': packageVersions['babel-polyfill'],
+          'coveralls': packageVersions.coveralls,
+          'lcov-result-merger': packageVersions['lcov-result-merger'],
         },
         scripts: {
           test: 'karma start',
+          posttest: 'lcov-result-merger \'coverage/**/lcov.info\' | coveralls; true',
         },
       }, packageJson))),
     },

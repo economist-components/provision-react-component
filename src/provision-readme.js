@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+import { packageToClass, packageToNpm } from './package-names';
 import descriptionQuestion from 'packagesmith.questions.description';
 import nameQuestion from 'packagesmith.questions.name';
-import { packageToClass } from './package-names';
 import { runProvisionerSet } from 'packagesmith';
 export function provisionReadme() {
   return {
@@ -10,7 +10,27 @@ export function provisionReadme() {
         nameQuestion(),
         descriptionQuestion(),
       ],
-      contents: (contents, answers) => contents || `
+      contents: (contents, answers) => {
+        const packageName = packageToNpm(answers);
+        const escapedPackageName = `@${ packageName.scope }%2F${ packageName.name }`;
+        return contents || `[![By:Economist](
+  https://img.shields.io/badge/By-Economist-e3120b.svg?style=flat-square
+)](
+  http://www.economist.com/
+)[![Build Status](
+  https://img.shields.io/npm/v/${ escapedPackageName }.svg?style=flat-square
+)](
+  https://www.npmjs.com/package/${ escapedPackageName }
+)[![Build Status](
+  https://img.shields.io/travis/economist-components/${ packageName.name }/master.svg?style=flat-square
+)](
+  https://travis-ci.org/economist-components/${ packageName.name }/branches
+)[![Coverage Status](
+  https://img.shields.io/coveralls/economist-components/${ packageName.name }/master.svg?style=flat-square
+)](
+  https://coveralls.io/github/economist-components/${ packageName.name }?branch=master
+)
+
 # ${ packageToClass(answers) }
 > ${ answers.description }
 
@@ -46,7 +66,8 @@ npm i -S ${ answers.name }
 \`\`\`bash
 npm test
 \`\`\`
-`,
+`;
+      },
     },
   };
 }

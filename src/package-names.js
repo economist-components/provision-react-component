@@ -11,3 +11,11 @@ export function packageToCamel(packageName) {
 export function packageToClass(name) {
   return capitalize(packageToCamel(name));
 }
+export function packageToNpm(name) {
+  const parsedPackageName = {
+    ...parsePackageJsonName(name),
+    scope: 'economist',
+  };
+  parsedPackageName.name = `component-${ kebabCase(parsedPackageName.fullName.replace(/^component-/, '')) }`;
+  return parsedPackageName;
+}

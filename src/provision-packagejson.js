@@ -2,11 +2,10 @@
 import defaultsDeep from 'lodash.defaultsdeep';
 import descriptionQuestion from 'packagesmith.questions.description';
 import jsonFile from 'packagesmith.formats.json';
-import kebabCase from 'lodash.kebabcase';
 import moduleJson from '../package.json';
 import nameQuestion from 'packagesmith.questions.name';
+import { packageToNpm } from './package-names';
 import packageVersions from '../package-versions';
-import parsePackageJsonName from 'parse-packagejson-name';
 import { runProvisionerSet } from 'packagesmith';
 import sortPackageJson from 'sort-package-json';
 export function provisionPackageJson() {
@@ -14,21 +13,17 @@ export function provisionPackageJson() {
     'package.json': {
       questions: [ nameQuestion(), descriptionQuestion() ],
       contents: jsonFile((packageJson, answers) => {
-        const parsedPackageName = {
-          ...parsePackageJsonName(answers.name || packageJson),
-          scope: 'economist',
-        };
-        const packageName = `component-${ kebabCase(parsedPackageName.fullName.replace(/^component-/, '')) }`;
-        let bugsUrl = `https://github.com/economist-components/${ packageName }/issues`;
+        const packageName = packageToNpm(answers);
+        let bugsUrl = `https://github.com/economist-components/${ packageName.name }/issues`;
         if (typeof packageJson.bugs === 'string') {
           bugsUrl = packageJson.bugs;
           Reflect.deleteProperty(packageJson, 'bugs');
         }
         return sortPackageJson(defaultsDeep({
-          name: `@${ parsedPackageName.scope }/${ packageName }`,
+          name: `@${ packageName.scope }/${ packageName.name }`,
           license: 'MIT',
           description: answers.description,
-          homepage: `https://github.com/economist-components/${ packageName }`,
+          homepage: `https://github.com/economist-components/${ packageName.name }`,
           bugs: { url: bugsUrl },
           config: {
             ghooks: {

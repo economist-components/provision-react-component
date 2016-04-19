@@ -39,8 +39,12 @@ export function provisionReactComponent() {
       ],
     }),
     provisionNpmBabel({
-      babelVersion: 5,
-      babelStage: 2,
+      babelVersion: 6,
+      babelPresets: {
+        'es2015-loose': packageVersions['babel-preset-es2015-loose'],
+        'stage-2': packageVersions['babel-preset-stage-2'],
+        'react': packageVersions['babel-preset-react'],
+      },
       scriptName: 'build:js',
       babelConfig: {
         compact: false,

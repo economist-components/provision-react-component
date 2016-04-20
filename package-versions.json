@@ -42,5 +42,6 @@
   "react-addons-test-utils": "^0.14.8||^15.0.0",
   "react-dom": "^0.14.8||^15.0.0",
   "react": "^0.14.8||^15.0.0",
+  "travis-after-all": "^1.4.4",
   "watchify": "^3.7.0"
 }

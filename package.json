@@ -85,6 +85,7 @@
     "provision-npm-babel": "^1.1.4",
     "provision-npm-semantic-release": "^2.0.2",
     "provision-stylelint": "^3.0.0",
+    "semver-addons": "^1.0.0",
     "sort-package-json": "^1.4.0"
   },
   "devDependencies": {

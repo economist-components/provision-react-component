@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { format as formatUrl, parse as parseUrl } from 'url';
 import defaultsDeep from 'lodash.defaultsdeep';
+import getBestVersion from './get-best-version';
 import jsonFile from 'packagesmith.formats.json';
 import repositoryQuestion from 'packagesmith.questions.repository';
 import { runProvisionerSet } from 'packagesmith';
@@ -47,7 +48,7 @@ export function provisionTravisYaml() {
     'package.json': {
       contents: jsonFile((packageJson) => sortPackageJson(defaultsDeep({
         devDependencies: {
-          'travis-after-all': '^1.4.4',
+          'travis-after-all': getBestVersion(packageJson, 'travis-after-all'),
         },
       }, packageJson))),
     },

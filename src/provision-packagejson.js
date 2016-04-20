@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 import defaultsDeep from 'lodash.defaultsdeep';
 import descriptionQuestion from 'packagesmith.questions.description';
+import getBestVersion from './get-best-version';
 import jsonFile from 'packagesmith.formats.json';
 import moduleJson from '../package.json';
 import nameQuestion from 'packagesmith.questions.name';
 import { packageToNpm } from './package-names';
-import packageVersions from '../package-versions';
 import { runProvisionerSet } from 'packagesmith';
 import sortPackageJson from 'sort-package-json';
 export function provisionPackageJson() {
@@ -52,9 +52,9 @@ export function provisionPackageJson() {
           },
           devDependencies: {
             '@economist/provision-react-component': moduleJson.version,
-            'eslint-plugin-filenames': packageVersions['eslint-plugin-filenames'],
-            'eslint-plugin-react': packageVersions['eslint-plugin-react'],
-            'live-server': packageVersions['live-server'],
+            'eslint-plugin-filenames': getBestVersion(packageJson, 'eslint-plugin-filenames'),
+            'eslint-plugin-react': getBestVersion(packageJson, 'eslint-plugin-react'),
+            'live-server': getBestVersion(packageJson, 'live-server'),
           },
         }, packageJson));
       }),

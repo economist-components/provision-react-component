@@ -33,6 +33,7 @@ export function provisionLegacyRemoval() {
         Reflect.deleteProperty(packageJson, 'devpack-doc');
         Reflect.deleteProperty(packageJson, 'pre-commit');
         Reflect.deleteProperty(packageJson, 'watch');
+        Reflect.deleteProperty(packageJson, 'babel');
         if (packageJson.scripts) {
           Reflect.deleteProperty(packageJson.scripts, 'preinstall');
           Reflect.deleteProperty(packageJson.scripts, 'postinstall');
@@ -42,7 +43,6 @@ export function provisionLegacyRemoval() {
           Reflect.deleteProperty(packageJson.scripts, 'doc:watch');
           Reflect.deleteProperty(packageJson.scripts, 'doc:js:watch');
           Reflect.deleteProperty(packageJson.scripts, 'doc:css:watch');
-          Reflect.deleteProperty(packageJson.scripts, 'doc:html:watch');
           Reflect.deleteProperty(packageJson.scripts, 'doc:html:watch');
           Reflect.deleteProperty(packageJson.scripts, 'ci');
         }
@@ -75,13 +75,6 @@ export function provisionLegacyRemoval() {
           Reflect.deleteProperty(packageJson.config, 'testbundle_opts');
           Reflect.deleteProperty(packageJson.config, 'ghpages_files');
         }
-        if (packageJson.babel) {
-          packageJson.babel.optional = without(packageJson.babel.optional || [], 'runtime');
-          if (packageJson.babel.optional.length === 0) {
-            Reflect.deleteProperty(packageJson.babel, 'optional');
-          }
-          Reflect.deleteProperty(packageJson.babel, 'sourceMaps');
-        }
         packageJson.files = without(packageJson.files || [],
           '*.js',
           '*.es6',
@@ -89,6 +82,9 @@ export function provisionLegacyRemoval() {
           '!karma.conf.js',
           '!testbundle.js',
         );
+        if (packageJson.files.length === 0) {
+          Reflect.deleteProperty(packageJson, 'files');
+        }
         const build = getObjectPath(packageJson, 'scripts.build');
         if (build && build !== 'npm-run-all --parallel build:*' && build !== 'npm-assets .') {
           Reflect.deleteProperty(packageJson.scripts, 'build');

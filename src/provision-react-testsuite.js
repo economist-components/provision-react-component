@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { packageToCamel, packageToClass, packageToCss } from './package-names';
 import defaultsDeep from 'lodash.defaultsdeep';
+import getBestVersion from './get-best-version';
 import jsonFile from 'packagesmith.formats.json';
 import nameQuestion from 'packagesmith.questions.name';
-import packageVersions from '../package-versions';
 import { readFileSync as readFile } from 'fs';
 import { resolve as resolvePath } from 'path';
 import { runProvisionerSet } from 'packagesmith';
@@ -25,30 +25,30 @@ export function provisionTestFiles() {
           test: 'test',
         },
         dependencies: {
-          'react': packageVersions.react,
+          'react': getBestVersion(packageJson, 'react', 'dependencies'),
         },
         devDependencies: {
-          'react-addons-test-utils': packageVersions['react-addons-test-utils'],
-          'react-dom': packageVersions['react-dom'],
-          'mocha': packageVersions.mocha,
-          'chai': packageVersions.chai,
-          'chai-spies': packageVersions['chai-spies'],
-          'karma': packageVersions.karma,
-          'karma-mocha': packageVersions['karma-mocha'],
-          'karma-mocha-reporter': packageVersions['karma-mocha-reporter'],
-          'karma-phantomjs-launcher': packageVersions['karma-phantomjs-launcher'],
-          'karma-browserify': packageVersions['karma-browserify'],
-          'karma-coverage': packageVersions['karma-coverage'],
-          'browserify-istanbul': packageVersions['browserify-istanbul'],
-          'istanbul': packageVersions.istanbul,
-          'chai-enzyme': packageVersions['chai-enzyme'],
-          'enzyme': packageVersions.enzyme,
-          'isparta': packageVersions.isparta,
-          'phantomjs-prebuilt': packageVersions['phantomjs-prebuilt'],
-          'karma-sauce-launcher': packageVersions['karma-sauce-launcher'],
-          'babel-polyfill': packageVersions['babel-polyfill'],
-          'coveralls': packageVersions.coveralls,
-          'lcov-result-merger': packageVersions['lcov-result-merger'],
+          'react-addons-test-utils': getBestVersion(packageJson, 'react-addons-test-utils'),
+          'react-dom': getBestVersion(packageJson, 'react-dom'),
+          'mocha': getBestVersion(packageJson, 'mocha'),
+          'chai': getBestVersion(packageJson, 'chai'),
+          'chai-spies': getBestVersion(packageJson, 'chai-spies'),
+          'karma': getBestVersion(packageJson, 'karma'),
+          'karma-mocha': getBestVersion(packageJson, 'karma-mocha'),
+          'karma-mocha-reporter': getBestVersion(packageJson, 'karma-mocha-reporter'),
+          'karma-phantomjs-launcher': getBestVersion(packageJson, 'karma-phantomjs-launcher'),
+          'karma-browserify': getBestVersion(packageJson, 'karma-browserify'),
+          'karma-coverage': getBestVersion(packageJson, 'karma-coverage'),
+          'browserify-istanbul': getBestVersion(packageJson, 'browserify-istanbul'),
+          'istanbul': getBestVersion(packageJson, 'istanbul'),
+          'chai-enzyme': getBestVersion(packageJson, 'chai-enzyme'),
+          'enzyme': getBestVersion(packageJson, 'enzyme'),
+          'isparta': getBestVersion(packageJson, 'isparta'),
+          'phantomjs-prebuilt': getBestVersion(packageJson, 'phantomjs-prebuilt'),
+          'karma-sauce-launcher': getBestVersion(packageJson, 'karma-sauce-launcher'),
+          'babel-polyfill': getBestVersion(packageJson, 'babel-polyfill'),
+          'coveralls': getBestVersion(packageJson, 'coveralls'),
+          'lcov-result-merger': getBestVersion(packageJson, 'lcov-result-merger'),
         },
         scripts: {
           test: 'karma start',

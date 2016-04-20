@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import compose from 'lodash.compose';
 import defaultsDeep from 'lodash.defaultsdeep';
+import getBestVersion from './get-best-version';
 import getObjectPath from 'lodash.get';
 import jsonFile from 'packagesmith.formats.json';
 import multiline from 'packagesmith.formats.multiline';
-import packageVersions from '../package-versions';
 import { runProvisionerSet } from 'packagesmith';
 import sortPackageJson from 'sort-package-json';
 function addDoc(packageJson) {
@@ -13,8 +13,8 @@ function addDoc(packageJson) {
       site: 'site',
     },
     devDependencies: {
-      'npm-run-all': packageVersions['npm-run-all'],
-      'git-directory-deploy': packageVersions['git-directory-deploy'],
+      'npm-run-all': getBestVersion(packageJson, 'npm-run-all'),
+      'git-directory-deploy': getBestVersion(packageJson, 'git-directory-deploy'),
     },
     scripts: {
       'prewatch:doc': 'npm run predoc',
@@ -32,7 +32,7 @@ function addDoc(packageJson) {
 function addDocAssets(packageJson) {
   return defaultsDeep({
     devDependencies: {
-      'npm-assets': packageVersions['npm-assets'],
+      'npm-assets': getBestVersion(packageJson, 'npm-assets'),
     },
     scripts: {
       'doc:assets': 'npm-assets $npm_package_directories_site',
@@ -44,11 +44,11 @@ function addDocAssets(packageJson) {
 function addDocCss(packageJson) {
   return defaultsDeep({
     devDependencies: {
-      'postcss-import': packageVersions['postcss-import'],
-      'postcss-url': packageVersions['postcss-url'],
-      'postcss-cssnext': packageVersions['postcss-cssnext'],
-      'postcss-reporter': packageVersions['postcss-reporter'],
-      'postcss-cli': packageVersions['postcss-cli'],
+      'postcss-import': getBestVersion(packageJson, 'postcss-import'),
+      'postcss-url': getBestVersion(packageJson, 'postcss-url'),
+      'postcss-cssnext': getBestVersion(packageJson, 'postcss-cssnext'),
+      'postcss-reporter': getBestVersion(packageJson, 'postcss-reporter'),
+      'postcss-cli': getBestVersion(packageJson, 'postcss-cli'),
     },
     config: {
       doc: {
@@ -77,8 +77,8 @@ function addDocCss(packageJson) {
 function addDocHtml(packageJson) {
   return defaultsDeep({
     devDependencies: {
-      '@economist/doc-pack': packageVersions['@economist/doc-pack'],
-      'hbs-cli': packageVersions['hbs-cli'],
+      '@economist/doc-pack': getBestVersion(packageJson, '@economist/doc-pack'),
+      'hbs-cli': getBestVersion(packageJson, 'hbs-cli'),
     },
     config: {
       doc: {
@@ -106,9 +106,9 @@ function addDocHtml(packageJson) {
 function addDocJs(packageJson) {
   return defaultsDeep({
     devDependencies: {
-      'browserify': packageVersions.browserify,
-      'watchify': packageVersions.watchify,
-      'babelify': packageVersions.babelify,
+      'browserify': getBestVersion(packageJson, 'browserify'),
+      'watchify': getBestVersion(packageJson, 'watchify'),
+      'babelify': getBestVersion(packageJson, 'babelify'),
     },
     config: {
       doc: {

@@ -52,6 +52,7 @@ export function provisionPackageJson() {
           },
           devDependencies: {
             '@economist/provision-react-component': moduleJson.version,
+            'babel-preset-es2015': getBestVersion(packageJson, 'babel-preset-es2015'),
             'eslint-plugin-filenames': getBestVersion(packageJson, 'eslint-plugin-filenames'),
             'eslint-plugin-react': getBestVersion(packageJson, 'eslint-plugin-react'),
             'live-server': getBestVersion(packageJson, 'live-server'),

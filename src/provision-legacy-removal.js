@@ -34,6 +34,7 @@ export function provisionLegacyRemoval() {
         Reflect.deleteProperty(packageJson, 'pre-commit');
         Reflect.deleteProperty(packageJson, 'watch');
         Reflect.deleteProperty(packageJson, 'babel');
+        Reflect.deleteProperty(packageJson, 'browserify');
         if (packageJson.scripts) {
           Reflect.deleteProperty(packageJson.scripts, 'preinstall');
           Reflect.deleteProperty(packageJson.scripts, 'postinstall');

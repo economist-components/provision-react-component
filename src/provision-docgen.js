@@ -115,6 +115,7 @@ function addDocJs(packageJson) {
         js: { // eslint-disable-line id-length
           options: [
             '-d',
+            '-t babelify',
             '-x react/lib/ReactContext',
             '-x react/lib/ExecutionEnvironment',
             '-r react',

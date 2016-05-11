@@ -126,9 +126,6 @@ function addDocJs(packageJson) {
         },
       },
     },
-    browserify: {
-      transform: [ 'babelify' ],
-    },
     scripts: {
       'doc:js': 'browserify ' +
         '$npm_package_config_doc_js_options ' +

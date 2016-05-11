@@ -116,6 +116,7 @@ function addDocJs(packageJson) {
           options: [
             '-d',
             '-t babelify',
+            '-x react/addons',
             '-x react/lib/ReactContext',
             '-x react/lib/ExecutionEnvironment',
             '-r react',

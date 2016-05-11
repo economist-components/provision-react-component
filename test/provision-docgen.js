@@ -22,10 +22,7 @@ describe('provisionDocgen', () => {
 
     it('adds docgen directives to json', () => {
       const output = JSON.parse(subFunction('{}'));
-      output.should.have.keys([ 'browserify', 'config', 'directories', 'devDependencies', 'scripts' ]);
-      output.should.have.property('browserify').deep.equal({
-        transform: [ 'babelify' ],
-      });
+      output.should.have.keys([ 'config', 'directories', 'devDependencies', 'scripts' ]);
       output.should.have.property('config').with.keys('doc');
       output.should.have.deep.property('config.doc.css.options');
       output.should.have.deep.property('config.doc.js.options');

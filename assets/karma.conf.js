@@ -73,6 +73,7 @@ module.exports = function configureKarma(config) {
       ],
       configure: (bundle) => {
         bundle.on('prebundle', () => {
+          bundle.external('react/addons');
           bundle.external('react/lib/ReactContext');
           bundle.external('react/lib/ExecutionEnvironment');
         });

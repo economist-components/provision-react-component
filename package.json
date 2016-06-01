@@ -103,7 +103,7 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "eslint": "^2.8.0",
-    "eslint-config-strict": "^8.5.1",
+    "eslint-config-strict": "^9.0.0",
     "eslint-plugin-filenames": "^0.2.0",
     "ghooks": "^1.2.1",
     "mocha": "^2.4.5",

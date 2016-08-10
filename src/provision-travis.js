@@ -33,7 +33,6 @@ export function provisionTravisYaml() {
           ],
         },
         node_js: [
-          '4',
           'stable',
         ],
         after_success: [

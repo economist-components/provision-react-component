@@ -27,11 +27,6 @@ export function provisionTravisYaml() {
         /* eslint-disable camelcase, id-match */
         sudo: false,
         language: 'node_js',
-        cache: {
-          directories: [
-            'node_modules',
-          ],
-        },
         node_js: [
           '4',
           'stable',
